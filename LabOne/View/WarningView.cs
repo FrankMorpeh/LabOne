@@ -9,16 +9,16 @@ namespace LabOne.View
             switch (errorType)
             {
                 case ErrorType.IncorrectName:
-                    Console.WriteLine("The name is invalid!");
+                    Console.WriteLine("The name is invalid!\n");
                     break;
                 case ErrorType.IncorrectRecordBookNumber:
-                    Console.WriteLine("The record book number is invalid!");
+                    Console.WriteLine("The record book number is invalid!\n");
                     break;
                 case ErrorType.IncorrectYearInUniversity:
-                    Console.WriteLine("The univesity year is invalid!");
+                    Console.WriteLine("The univesity year is invalid!\n");
                     break;
                 case ErrorType.IncorrectGrades:
-                    Console.WriteLine("Grades are invalid!");
+                    Console.WriteLine("Grades are invalid!\n");
                     break;
             }
         }

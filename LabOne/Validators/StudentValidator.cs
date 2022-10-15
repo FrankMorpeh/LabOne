@@ -2,7 +2,7 @@
 {
     public class StudentValidator
     {
-        public ErrorType CheckStudent(string name, string recordBookNumber, string yearInUniversity, string algebraGrade, string geometryGrade
+        public static ErrorType CheckStudent(string name, string recordBookNumber, string yearInUniversity, string algebraGrade, string geometryGrade
             , string programmingGrade, string physicsGrade, string chemistryGrade, string ukrainianGrade, string englishGrade, string literatureGrade
             , string historyGrade, string economyGrade)
         {
@@ -38,7 +38,9 @@
 
             try
             {
-                Convert.ToInt32(yearInUniversity);
+                int year = Convert.ToInt32(yearInUniversity);
+                if (year < 1 || year > 6)
+                    yearInUniversityIsValid = false;
             }
             catch (Exception)
             {

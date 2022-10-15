@@ -10,6 +10,16 @@ namespace LabOne.View
         public StudentView() { itsStudentController = null; }
         public StudentView(StudentController studentController) { itsStudentController = studentController; }
 
+        public void AddStudent(Student student)
+        {
+            itsStudentController.AddStudent(student);
+            Console.WriteLine("Student has been successfully added!\n");
+        }
+        public void RemoveStudentAt(int index)
+        {
+            itsStudentController.RemoveStudentAt(index);
+            Console.WriteLine("Student has been successfully removed!\n");
+        }
         public void ShowStudents()
         {
             Console.WriteLine("Students:\n");
@@ -17,7 +27,7 @@ namespace LabOne.View
             for (int i = 0; i < itsStudentController.Count; i++)
             {
                 int currentNumber = i + 1;
-                Console.WriteLine(Convert.ToString(currentNumber) + ":\n\n" + itsStudentController[i] + "\n\n\n");
+                Console.WriteLine(Convert.ToString(currentNumber) + ":\n\n" + itsStudentController[i] + "\n");
             }
         }
         public void ShowDifferenceInGrades(int lhsIndex, int rhsIndex)
