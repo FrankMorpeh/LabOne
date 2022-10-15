@@ -43,6 +43,9 @@
                 averageGrade += grade;
             return averageGrade / itsSubjects.Count;
         }
+
+
+        // Static methods
         public static Dictionary<SubjectName, double> CompareGradesOf(Student lhs, Student rhs)
         {
             Dictionary<SubjectName, double> differenceInGrades = new Dictionary<SubjectName, double>();
