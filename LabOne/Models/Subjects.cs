@@ -10,7 +10,7 @@
             SetGrades();
         }
         public Subjects(double algebraGrade, double geometryGrade, double programmingGrade, double physicsGrade, double chemistryGrade
-            , double ukrainianGrade, double englishGrade, double literatureGrade, double historyGrade, double economyGrade) : this()
+            , double ukrainianGrade, double englishGrade, double literatureGrade, double historyGrade, double economyGrade)
         {
             itsSubjects = new Dictionary<SubjectName, double>();
             SetGrades(algebraGrade, geometryGrade, programmingGrade, physicsGrade, chemistryGrade, ukrainianGrade, englishGrade, literatureGrade
