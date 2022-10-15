@@ -35,7 +35,7 @@
         public double GetGrade(SubjectName subjectName) { return itsSubjects.GetGrade(subjectName); }
         public Dictionary<SubjectName, double> CompareGradesTo(Student rhs)
         {
-            return itsSubjects.CompareGradesOf(this, rhs);
+            return Subjects.CompareGradesOf(this, rhs);
         }
 
 
