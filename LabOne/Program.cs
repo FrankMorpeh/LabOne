@@ -2,6 +2,7 @@
 using LabOne.Converters;
 using LabOne.Validators;
 using LabOne.View;
+using LabOne.Warnings;
 
 namespace LabOne
 {
@@ -81,15 +82,15 @@ namespace LabOne
 
             Console.Clear();
 
-            ErrorType errorType = StudentValidator.CheckStudent(name, recordBookNumber, yearInUniversity, algebraGrade, geometryGrade, programmingGrade
+            IWarning errorType = StudentValidator.CheckStudent(name, recordBookNumber, yearInUniversity, algebraGrade, geometryGrade, programmingGrade
                 , physicsGrade, chemistryGrade, ukrainianGrade, englishGrade, literatureGrade, economyGrade, historyGrade);
-            if (errorType == ErrorType.None)
+            if (errorType.GetType() == typeof(None))
             {
                 itsStudentView.AddStudent(StudentConverter.ToStudent(name, recordBookNumber, yearInUniversity, algebraGrade, geometryGrade
                     , programmingGrade, physicsGrade, chemistryGrade, ukrainianGrade, englishGrade, literatureGrade, economyGrade, historyGrade));
             }
             else
-                WarningView.ShowWarning(errorType);
+                WarningDisplayer.ShowWarning(errorType);
 
             ShowMainMenu();
         }

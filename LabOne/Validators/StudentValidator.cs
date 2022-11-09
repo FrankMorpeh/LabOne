@@ -1,22 +1,24 @@
-﻿namespace LabOne.Validators
+﻿using LabOne.Warnings;
+
+namespace LabOne.Validators
 {
     public class StudentValidator
     {
-        public static ErrorType CheckStudent(string name, string recordBookNumber, string yearInUniversity, string algebraGrade, string geometryGrade
+        public static IWarning CheckStudent(string name, string recordBookNumber, string yearInUniversity, string algebraGrade, string geometryGrade
             , string programmingGrade, string physicsGrade, string chemistryGrade, string ukrainianGrade, string englishGrade, string literatureGrade
             , string historyGrade, string economyGrade)
         {
             if (!NameIsValid(name))
-                return ErrorType.IncorrectName;
+                return new IncorrectName();
             else if (!RecordBookNumberIsValid(recordBookNumber))
-                return ErrorType.IncorrectRecordBookNumber;
+                return new IncorrectRecordBookNumber();
             else if (!YearInUniversityIsValid(yearInUniversity))
-                return ErrorType.IncorrectYearInUniversity;
+                return new IncorrectYearInUniversity();
             else if (SubjectsValidator.CheckGrades(algebraGrade, geometryGrade, programmingGrade, physicsGrade, chemistryGrade, ukrainianGrade, englishGrade
-                , literatureGrade, historyGrade, economyGrade) == ErrorType.IncorrectGrades)
-                return ErrorType.IncorrectGrades;
+                , literatureGrade, historyGrade, economyGrade).GetType() == typeof(IncorrectGrades))
+                return new IncorrectGrades();
             else
-                return ErrorType.None;
+                return new None();
         }
 
         // Name

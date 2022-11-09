@@ -1,20 +1,22 @@
-﻿namespace LabOne.Validators
+﻿using LabOne.Warnings;
+
+namespace LabOne.Validators
 {
     public static class SubjectsValidator
     {
-        public static ErrorType CheckGrades(string algebraGrade, string geometryGrade, string programmingGrade, string physicsGrade, string chemistryGrade
+        public static IWarning CheckGrades(string algebraGrade, string geometryGrade, string programmingGrade, string physicsGrade, string chemistryGrade
             , string ukrainianGrade, string englishGrade, string literatureGrade, string historyGrade, string economyGrade)
         {
             List<string> grades = new List<string>() { algebraGrade, geometryGrade, programmingGrade, physicsGrade, chemistryGrade, ukrainianGrade
                 , englishGrade, literatureGrade, historyGrade, economyGrade };
 
-            ErrorType errorType = ErrorType.None;
+            IWarning errorType = new None();
 
             foreach (string grade in grades)
             {
                 if (!GradeIsValid(grade))
                 {
-                    errorType = ErrorType.IncorrectGrades;
+                    errorType = new IncorrectGrades();
                     break;
                 }
             }
